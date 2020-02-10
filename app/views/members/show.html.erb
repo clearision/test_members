@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @member.name %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @member.url %>
+</p>
+
+<p>
+  <strong>Short url:</strong>
+  <%= @member.short_url %>
+</p>
+
+<p>
+  <strong>Headings:</strong>
+  <%= @member.headings %>
+</p>
+
+<% if @member.friends.any? %>
+  <p>
+    <strong>Friends:</strong>
+    <ul>
+      <% @member.friends.each do |friend| %>
+        <li><%= link_to friend.name, member_path(friend) %></li>
+      <% end %>
+    </ul>
+  </p>
+<% end %>
+
+<% if @member.possible_friends.any? %>
+  <p>
+    <strong>You may know them:</strong>
+    <%= form_tag add_friends_member_path(@member), method: :post do %>
+      <ul>
+        <% @member.possible_friends.each do |friend| %>
+          <li>
+            <span><%= friend.name %></span>
+            <%= check_box 'member', 'friends', { multiple: true }, friend.id, nil %>
+          </li>
+        <% end %>
+        <%= submit_tag I18n.t('add_friends') %>
+      </ul>
+    <% end %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Search articles:</strong>
+  <%= text_field_tag :query, nil, { class: 'search-input' } %>
+  <%= hidden_field_tag :id, @member.id, { class: 'search-member-id' } %>
+  <%= button_tag 'Search', class: 'search-btn' %>
+  <div class='search-results'></div>
+</p>
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>
+
+

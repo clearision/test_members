@@ -1,0 +1,7 @@
+one:
+  member: john
+  friend: jack
+
+two:
+  member: jack
+  friend: patrick

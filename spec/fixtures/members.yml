@@ -1,0 +1,17 @@
+john:
+  name: John
+  short_url: shrt.url
+  url: http%3A%2F%2Floong.url
+  headings: ["Books", "Cars"]
+
+jack:
+  name: Jack
+  short_url: shrt.htp
+  url: http://loongtwo.url
+  headings: ["Movies"]
+
+patrick:
+  name: Patrick
+  short_url: shrt.ly
+  url: http://loong.ly
+  headings: ["Music"]
