@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample Rails 6 project
 
-Things you may want to cover:
+## Ruby version
 
-* Ruby version
+`ruby-2.6.3`
 
-* System dependencies
+## Installation
 
-* Configuration
+```
+bundle install
+rake db:migrate db:seed
+```
 
-* Database creation
+## Members
 
-* Database initialization
+Seeds create the following friendship relations:
 
-* How to run the test suite
+```
+John -> Jack
+John -> Pete
+Zoey -> Jack
+Zoey -> Pete
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+So you can search for John's articles from Zoey's page and vice versa.
